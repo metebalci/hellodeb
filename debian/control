@@ -1,0 +1,15 @@
+Source: hellodeb
+Maintainer: Mete Balci <metebalci@gmail.com>
+Standards-Version: 4.5.0
+Priority: optional
+Section: utils
+
+Package: hellodeb
+Architecture: amd64 arm64 armhf
+Description: hello world for Debian packaging
+ This is an hello program to demonstrate
+ Debian packaging.
+
+Package: hellodeb-doc
+Architecture: all
+Description: hellodeb documentation

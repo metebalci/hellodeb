@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+
+CC = $(DEB_HOST_GNU_TYPE)-gcc
+CFLAGS := `dpkg-buildflags --get CFLAGS` -Wall
+LDFLAGS := `dpkg-buildflags --get LDFLAGS`
+CPPFLAGS := `dpkg-buildflags --get CPPFLAGS`
+
+DEB_VERSION = $(shell dpkg-parsechangelog --show-field Version)
+
+clean:
+	rm -f hellodeb
+	rm -f hellodeb.1.gz
+	rm -rf debian/tmp
+
+build: build-arch build-indep
+
+binary: binary-arch binary-indep 
+	
+build-arch:
+	$(CC) $(CFLAGS) -o hellodeb hellodeb.c
+
+binary-arch:
+	rm -rf debian/tmp
+	mkdir -p debian/tmp/DEBIAN
+	dpkg-gencontrol -phellodeb
+	mkdir -p debian/tmp/usr/bin
+	cp hellodeb debian/tmp/usr/bin
+	strip --strip-unneeded --remove-section=.comment --remove-section=.note debian/tmp/usr/bin/hellodeb
+	dpkg-deb --build debian/tmp ../hellodeb_$(DEB_VERSION)_$(DEB_TARGET_ARCH).deb
+
+build-indep:
+	gzip -c hellodeb.1 > hellodeb.1.gz
+
+binary-indep:
+	rm -rf debian/tmp
+	mkdir -p debian/tmp/DEBIAN
+	dpkg-gencontrol -phellodeb-doc
+	mkdir -p debian/tmp/usr/share/man/man1
+	cp hellodeb.1.gz debian/tmp/usr/share/man/man1
+	dpkg-deb --build debian/tmp ../hellodeb-doc_$(DEB_VERSION)_all.deb

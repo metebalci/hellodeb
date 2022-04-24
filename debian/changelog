@@ -1,0 +1,29 @@
+hellodeb (1.0-8) focal; urgency=low
+
+  * package fix
+
+ -- Mete Balci <metebalci@gmail.com>  Tue, 24 Apr 2022 10:03:28 +0000
+
+hellodeb (1.0-7) focal; urgency=low
+
+  * package fix
+
+ -- Mete Balci <metebalci@gmail.com>  Tue, 23 Apr 2022 18:03:28 +0000
+
+hellodeb (1.0-6) focal; urgency=low
+
+  * package update
+
+ -- Mete Balci <metebalci@gmail.com>  Tue, 22 Apr 2022 17:25:28 +0000
+
+hellodeb (1.0-5) focal; urgency=low
+
+  * package update
+
+ -- Mete Balci <metebalci@gmail.com>  Tue, 22 Apr 2022 17:21:28 +0000
+
+hellodeb (1.0-4) focal; urgency=low
+
+  * initial release
+
+ -- Mete Balci <metebalci@gmail.com>  Tue, 22 Apr 2022 07:21:28 +0000
