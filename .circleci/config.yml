@@ -6,6 +6,6 @@ jobs:
       - image: ubuntu:20.04
     steps:
       - checkout
-      - run: sudo apt install -y dpkg-dev
+      - run: apt install -y dpkg-dev
       - run: ./build-source.sh
       - run: ./build-package.sh full --no-sign
