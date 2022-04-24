@@ -6,6 +6,5 @@ jobs:
       - image: metebalci/launchpad:focal
     steps:
       - checkout
-      - run: apt install -y dpkg-dev
       - run: ./build-source.sh
       - run: ./build-package.sh full --no-sign
